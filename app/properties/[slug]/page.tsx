@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import BookingWidget from './BookingWidget';
 
-const API = 'https://villa-api-production-f7b1.up.railway.app';
+const API = 'https://villa-api-production-f7b1.up.railway.app/';
 
 const AMENITY_ICONS: Record<string, string> = {
   private_pool: '🏊',
