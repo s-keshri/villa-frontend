@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-const API = 'https://villa-api-production-f7b1.up.railway.app/';
+const API = 'https://villa-api-production-f7b1.up.railway.app';
 
 const AMENITY_ICONS: Record<string, string> = {
   private_pool: '🏊',

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const API = 'https://villa-api-production-f7b1.up.railway.app/';
+const API = 'https://villa-api-production-f7b1.up.railway.app';
 
 type Property = {
   slug: string;
