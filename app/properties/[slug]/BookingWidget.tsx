@@ -43,7 +43,6 @@ export default function BookingWidget({ property }: { property: Property }) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  // Fetch all blocked dates for this property on mount
   useEffect(() => {
     const fetchBlockedDates = async () => {
       try {
@@ -69,7 +68,6 @@ export default function BookingWidget({ property }: { property: Property }) {
     );
   };
 
-  // Check if any date in range is blocked
   const hasBlockedDateInRange = (start: Date, end: Date) => {
     const blocked = [];
     const current = new Date(start);
@@ -218,7 +216,7 @@ export default function BookingWidget({ property }: { property: Property }) {
             excludeDates={blockedDates}
             dateFormat="dd/MM/yyyy"
             placeholderText="Select date"
-            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-400 cursor-pointer"
+            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400 cursor-pointer"
           />
         </div>
         <div>
@@ -233,7 +231,7 @@ export default function BookingWidget({ property }: { property: Property }) {
             excludeDates={blockedDates}
             dateFormat="dd/MM/yyyy"
             placeholderText="Select date"
-            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-400 cursor-pointer"
+            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400 cursor-pointer"
           />
         </div>
       </div>
@@ -304,13 +302,13 @@ export default function BookingWidget({ property }: { property: Property }) {
           <hr className="border-stone-100" />
           <p className="text-xs font-semibold text-stone-500 uppercase tracking-wider">Your Details</p>
           <input type="text" placeholder="Full name *" value={guestName} onChange={(e) => setGuestName(e.target.value)}
-            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400" />
+            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400" />
           <input type="email" placeholder="Email address *" value={guestEmail} onChange={(e) => setGuestEmail(e.target.value)}
-            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400" />
+            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400" />
           <input type="tel" placeholder="Phone number" value={guestPhone} onChange={(e) => setGuestPhone(e.target.value)}
-            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400" />
+            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400" />
           <textarea placeholder="Special requests (optional)" value={specialRequests} onChange={(e) => setSpecialRequests(e.target.value)}
-            rows={2} className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 resize-none" />
+            rows={2} className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400 resize-none" />
         </div>
       )}
 
