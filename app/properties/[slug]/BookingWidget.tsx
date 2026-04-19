@@ -63,9 +63,7 @@ export default function BookingWidget({ property }: { property: Property }) {
   }, [property.slug]);
 
   const isDateBlocked = (date: Date) => {
-    return blockedDates.some(
-      (bd) => bd.toDateString() === date.toDateString()
-    );
+    return blockedDates.some((bd) => bd.toDateString() === date.toDateString());
   };
 
   const hasBlockedDateInRange = (start: Date, end: Date) => {
@@ -87,6 +85,17 @@ export default function BookingWidget({ property }: { property: Property }) {
       if (next.adults + next.kids > property.max_guests) return prev;
       return next;
     });
+  };
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+    const capitalized = val.replace(/\b\w/g, (c) => c.toUpperCase());
+    setGuestName(capitalized);
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setGuestPhone(val);
   };
 
   const handleCheckinChange = (date: Date | null) => {
@@ -119,6 +128,9 @@ export default function BookingWidget({ property }: { property: Property }) {
 
   const handleSubmit = async () => {
     if (!guestName || !guestEmail) { setError('Name and email are required.'); return; }
+    if (!/^[a-zA-Z\s]+$/.test(guestName)) { setError('Name can only contain letters.'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(guestEmail)) { setError('Please enter a valid email address.'); return; }
+    if (guestPhone && !/^\d{10}$/.test(guestPhone)) { setError('Phone number must be exactly 10 digits.'); return; }
     if (!checkin || !checkout) return;
     setLoading(true);
     setError('');
@@ -301,14 +313,35 @@ export default function BookingWidget({ property }: { property: Property }) {
         <div className="mb-4 space-y-3">
           <hr className="border-stone-100" />
           <p className="text-xs font-semibold text-stone-500 uppercase tracking-wider">Your Details</p>
-          <input type="text" placeholder="Full name *" value={guestName} onChange={(e) => setGuestName(e.target.value)}
-            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400" />
-          <input type="email" placeholder="Email address *" value={guestEmail} onChange={(e) => setGuestEmail(e.target.value)}
-            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400" />
-          <input type="tel" placeholder="Phone number" value={guestPhone} onChange={(e) => setGuestPhone(e.target.value)}
-            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400" />
-          <textarea placeholder="Special requests (optional)" value={specialRequests} onChange={(e) => setSpecialRequests(e.target.value)}
-            rows={2} className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400 resize-none" />
+          <input
+            type="text"
+            placeholder="Full name *"
+            value={guestName}
+            onChange={handleNameChange}
+            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400"
+          />
+          <input
+            type="email"
+            placeholder="Email address *"
+            value={guestEmail}
+            onChange={(e) => setGuestEmail(e.target.value)}
+            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400"
+          />
+          <input
+            type="tel"
+            placeholder="Phone number (10 digits)"
+            value={guestPhone}
+            onChange={handlePhoneChange}
+            maxLength={10}
+            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400"
+          />
+          <textarea
+            placeholder="Special requests (optional)"
+            value={specialRequests}
+            onChange={(e) => setSpecialRequests(e.target.value)}
+            rows={2}
+            className="w-full border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400 resize-none"
+          />
         </div>
       )}
 
