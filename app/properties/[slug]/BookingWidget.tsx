@@ -186,7 +186,6 @@ export default function BookingWidget({ property }: { property: Property }) {
 
         {/* Dashboard CTA */}
         <div className="border border-stone-200 rounded-xl p-4 mb-4 text-left">
-          <p className="text-xs text-stone-400 uppercase tracking-widest mb-1">Data Engineering</p>
           <p className="text-sm font-semibold text-stone-800 mb-3" style={{ fontFamily: 'Georgia, serif' }}>
             Your booking just landed in the database.
           </p>
