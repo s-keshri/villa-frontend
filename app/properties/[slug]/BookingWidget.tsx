@@ -186,12 +186,11 @@ export default function BookingWidget({ property }: { property: Property }) {
         <p className="text-xs text-stone-400 mb-4">Save your reference number.</p>
         <a
           href="/dashboard"
-          className="flex items-center justify-center gap-2 w-full bg-stone-900 hover:bg-stone-800 text-amber-500 hover:text-amber-400 border border-stone-700 hover:border-amber-500 font-medium py-3 rounded-xl transition-all text-sm group mb-3"
-        >
-          <span>⚡</span>
-          <span>Watch your booking appear live in the ETL dashboard</span>
-          <span className="group-hover:translate-x-1 transition-transform">→</span>
-        </a>
+  className="flex items-center justify-between w-full bg-stone-900 hover:bg-stone-800 text-amber-500 hover:text-amber-400 border border-stone-700 hover:border-amber-500 px-4 py-3 rounded-xl transition-all text-xs font-semibold tracking-wide uppercase group mb-3"
+>
+  <span>⚡ See Your Data In The Live ETL Pipeline</span>
+  <span className="group-hover:translate-x-1 transition-transform text-base">→</span>
+</a>
         <button
           onClick={() => { setResult(null); setCheckin(null); setCheckout(null); setGuests({ adults: 1, kids: 0, infants: 0 }); }}
           className="text-sm text-amber-600 underline hover:text-amber-700"
