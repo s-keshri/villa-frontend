@@ -173,7 +173,7 @@ export default function BookingWidget({ property }: { property: Property }) {
           <p className="text-xs text-amber-600 uppercase tracking-wider mb-1">Booking Reference</p>
           <p className="text-2xl font-bold text-amber-700">{result.booking_ref}</p>
         </div>
-        <div className="grid grid-cols-2 gap-3 text-sm text-stone-600 mb-6">
+        <div className="grid grid-cols-2 gap-3 text-sm text-stone-600 mb-4">
           <div className="bg-stone-50 rounded-lg p-3">
             <p className="text-xs text-stone-400 mb-1">Nights</p>
             <p className="font-bold text-stone-900">{result.num_nights}</p>
@@ -183,10 +183,18 @@ export default function BookingWidget({ property }: { property: Property }) {
             <p className="font-bold text-stone-900">₹{result.total_amount.toLocaleString('en-IN')}</p>
           </div>
         </div>
-        <p className="text-xs text-stone-400">Save your reference number.</p>
+        <p className="text-xs text-stone-400 mb-4">Save your reference number.</p>
+        <a
+          href="/dashboard"
+          className="flex items-center justify-center gap-2 w-full bg-stone-900 hover:bg-stone-800 text-amber-500 hover:text-amber-400 border border-stone-700 hover:border-amber-500 font-medium py-3 rounded-xl transition-all text-sm group mb-3"
+        >
+          <span>⚡</span>
+          <span>Watch your booking appear live in the ETL dashboard</span>
+          <span className="group-hover:translate-x-1 transition-transform">→</span>
+        </a>
         <button
           onClick={() => { setResult(null); setCheckin(null); setCheckout(null); setGuests({ adults: 1, kids: 0, infants: 0 }); }}
-          className="mt-4 text-sm text-amber-600 underline hover:text-amber-700"
+          className="text-sm text-amber-600 underline hover:text-amber-700"
         >
           Make another booking
         </button>
