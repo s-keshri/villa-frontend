@@ -173,7 +173,7 @@ export default function BookingWidget({ property }: { property: Property }) {
           <p className="text-xs text-amber-600 uppercase tracking-wider mb-1">Booking Reference</p>
           <p className="text-2xl font-bold text-amber-700">{result.booking_ref}</p>
         </div>
-        <div className="grid grid-cols-2 gap-3 text-sm text-stone-600 mb-4">
+        <div className="grid grid-cols-2 gap-3 text-sm text-stone-600 mb-5">
           <div className="bg-stone-50 rounded-lg p-3">
             <p className="text-xs text-stone-400 mb-1">Nights</p>
             <p className="font-bold text-stone-900">{result.num_nights}</p>
@@ -183,17 +183,29 @@ export default function BookingWidget({ property }: { property: Property }) {
             <p className="font-bold text-stone-900">₹{result.total_amount.toLocaleString('en-IN')}</p>
           </div>
         </div>
-        <p className="text-xs text-stone-400 mb-4">Save your reference number.</p>
-        <a
-          href="/dashboard"
-  className="flex items-center justify-between w-full bg-stone-900 hover:bg-stone-800 text-amber-500 hover:text-amber-400 border border-stone-700 hover:border-amber-500 px-4 py-3 rounded-xl transition-all text-xs font-semibold tracking-wide uppercase group mb-3"
->
-  <span>⚡ See Your Data In The Live ETL Pipeline</span>
-  <span className="group-hover:translate-x-1 transition-transform text-base">→</span>
-</a>
+
+        {/* Dashboard CTA */}
+        <div className="border border-stone-200 rounded-xl p-4 mb-4 text-left">
+          <p className="text-xs text-stone-400 uppercase tracking-widest mb-1">Data Engineering</p>
+          <p className="text-sm font-semibold text-stone-800 mb-3" style={{ fontFamily: 'Georgia, serif' }}>
+            Your booking just landed in the database.
+          </p>
+          <a
+            href="/dashboard"
+            className="flex items-center justify-between w-full bg-stone-900 hover:bg-stone-800 px-4 py-2.5 rounded-lg transition-colors group"
+          >
+            <span className="text-amber-400 text-sm font-medium" style={{ fontFamily: 'Georgia, serif' }}>
+              View live ETL pipeline →
+            </span>
+            <span className="text-stone-500 text-xs group-hover:text-amber-400 transition-colors">
+              villa-frontend.vercel.app/dashboard
+            </span>
+          </a>
+        </div>
+
         <button
           onClick={() => { setResult(null); setCheckin(null); setCheckout(null); setGuests({ adults: 1, kids: 0, infants: 0 }); }}
-          className="text-sm text-amber-600 underline hover:text-amber-700"
+          className="text-sm text-stone-400 hover:text-amber-600 transition-colors"
         >
           Make another booking
         </button>
