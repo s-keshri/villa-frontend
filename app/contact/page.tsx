@@ -32,7 +32,7 @@ export default function ContactPage() {
             Shivam Keshri
           </h1>
           <p className="text-stone-400 text-base">
-            Data Engineer · Full-Stack Developer · Builder of AureoStays
+            Data Analyst · Aspiring Data Engineer · Builder of AureoStays
           </p>
         </div>
       </section>
