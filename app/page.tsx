@@ -131,7 +131,7 @@ export default function ListingPage() {
             Find Your Perfect Escape
           </h1>
           <p className="text-stone-300 text-lg">
-            Private villas across India's most coveted destinations — Goa, Kasauli, Bengaluru and beyond.
+            Private Villas Across India's Most Coveted Destinations
           </p>
         </div>
       </section>
