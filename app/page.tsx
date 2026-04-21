@@ -115,7 +115,7 @@ export default function ListingPage() {
           </div>
           <nav className="hidden md:flex gap-8 text-sm text-stone-600">
             <a href="#" className="hover:text-amber-600 transition-colors">Properties</a>
-            <a href="#" className="hover:text-amber-600 transition-colors">About</a>
+            <Link href="/about" className="hover:text-amber-600 transition-colors">About</Link>
             <Link href="/contact" className="hover:text-amber-600 transition-colors">Contact</Link>
           </nav>
         </div>
