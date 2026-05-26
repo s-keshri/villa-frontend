@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 
-const API = 'https://villa-api-production-f7b1.up.railway.app';
+const API = 'https://aureo-stays-api.onrender.com';
 
 type Booking = {
   id: number;

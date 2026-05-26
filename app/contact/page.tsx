@@ -146,7 +146,7 @@ export default function ContactPage() {
               </span>
             </a>
             <a
-              href="https://villa-api-production-f7b1.up.railway.app/docs"
+              href="https://aureo-stays-api.onrender.com/docs"
               target="_blank"
               className="flex flex-col gap-1 border border-stone-200 hover:border-amber-400 rounded-xl p-4 transition-colors group"
             >
