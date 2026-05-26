@@ -167,7 +167,7 @@ export default function AboutPage() {
                 'Built a production-grade ETL pipeline where every guest booking flows through a FastAPI backend into a structured PostgreSQL database with atomic transactions and double-booking prevention.',
                 'Designed a 4-table schema (properties, inventory, guests, bookings) with generated columns, price snapshotting, and inventory-based availability tracking.',
                 'Built a live analytics dashboard at /dashboard showing real-time revenue, occupancy, and booking data — demonstrating the full Extract → Transform → Load cycle.',
-                'Deployed frontend on Vercel, API on Railway, and database on Supabase with transactional email via Resend.',
+                'Deployed frontend on Vercel, API on Render, and database on Supabase with transactional email via Resend.',
               ].map((point, i) => (
                 <li key={i} className="flex gap-3 text-sm text-stone-600 leading-relaxed">
                   <span className="text-amber-500 mt-1 flex-shrink-0">▸</span>
@@ -176,7 +176,7 @@ export default function AboutPage() {
               ))}
             </ul>
             <div className="flex flex-wrap gap-2 mb-4">
-              {['Next.js', 'FastAPI', 'PostgreSQL', 'Python', 'Supabase', 'Tailwind CSS', 'Metabase', 'Railway', 'Vercel'].map((tech) => (
+              {['Next.js', 'FastAPI', 'PostgreSQL', 'Python', 'Supabase', 'Tailwind CSS', 'Metabase', 'Render', 'Vercel'].map((tech) => (
                 <span key={tech} className="text-xs bg-amber-50 border border-amber-200 text-amber-700 px-2.5 py-1 rounded-full">
                   {tech}
                 </span>
