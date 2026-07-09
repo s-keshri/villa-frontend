@@ -82,7 +82,7 @@ export default function ListingPage() {
         setLoading(false);
       })
       .catch(() => {
-        setError('Could not connect to API. Make sure uvicorn is running on port 8000.');
+        setError('Could not load properties. Please try again shortly.');
         setLoading(false);
       });
   }, []);
